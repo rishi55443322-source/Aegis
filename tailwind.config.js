@@ -46,3 +46,5 @@ export default {
   },
   plugins: [],
 };
+
+// Neo-brutalist custom color palette configured
