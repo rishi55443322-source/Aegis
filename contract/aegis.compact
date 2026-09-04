@@ -161,3 +161,5 @@ module Aegis {
     return minimumAgeThreshold;
   }
 }
+
+// Witness functions execute exclusively within the local client memory runtime
