@@ -60,3 +60,5 @@ export interface ZKProofResult {
   /** Verification computation duration in milliseconds */
   provingTimeMs: number;
 }
+
+/** Protocol schema definition */
