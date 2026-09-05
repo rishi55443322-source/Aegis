@@ -163,3 +163,5 @@ module Aegis {
 }
 
 // Witness functions execute exclusively within the local client memory runtime
+
+// Public ledger cells initialized for Midnight Substrate consensus
