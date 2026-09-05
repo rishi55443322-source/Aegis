@@ -1,0 +1,163 @@
+// ============================================================================
+// Aegis: Zero-Knowledge Age & Eligibility Gate Smart Contract
+// Program: RiseIn "New Moon to Full: Monthly Moonshots on Midnight"
+// Level: Level 3 - First Quarter Submission
+// Author: rishi55443322-source
+// Tagline: "Guard the threshold. Guard the truth."
+// ============================================================================
+
+module Aegis {
+  import CompactStandardLibrary;
+
+  // ==========================================================================
+  // PUBLIC LEDGER STATE
+  // ==========================================================================
+  // PRIVACY DESIGN DECISION:
+  // All state defined in the 'ledger' block is globally visible on the Midnight
+  // blockchain. Therefore, we STRICTLY forbid storing raw ages, dates of birth,
+  // or identity documents here.
+  //
+  // What is stored:
+  // - Admin address (for protocol management)
+  // - Public minimum age threshold (e.g., 18 or 21)
+  // - Public verification records (Boolean eligibility result per address)
+  // - Verification counter for analytics
+  // ==========================================================================
+  export ledger {
+    // Protocol administrator who deployed the contract
+    admin: Cell<Address>,
+
+    // The public threshold against which zero-knowledge proofs are evaluated
+    // Defaults to 18 at deployment, configurable by admin
+    minimumAgeThreshold: Cell<Uint<32>>,
+
+    // Ledger mapping of User Address => Verification Record
+    // Discloses ONLY: isEligible (bool), thresholdTested (uint32), timestamp (uint64)
+    verifications: Map<Address, VerificationRecord>,
+
+    // Aggregate counter of verified eligible users
+    totalEligibleCount: Cell<Uint<64>>,
+
+    // Protocol state version
+    protocolVersion: Cell<Uint<32>>
+  }
+
+  // ==========================================================================
+  // DATA STRUCTURES
+  // ==========================================================================
+  export struct VerificationRecord {
+    // Boolean flag indicating if user met the age requirement
+    isEligible: Boolean,
+    // The public threshold that was active when proof was validated
+    thresholdTested: Uint<32>,
+    // Unix timestamp of verification
+    timestamp: Uint<64>,
+    // Cryptographic hash of the ZK proof commitment for tamper-proofing
+    proofCommitment: Bytes<32>
+  }
+
+  // ==========================================================================
+  // PRIVATE WITNESS INTERFACE
+  // ==========================================================================
+  // PRIVACY DESIGN DECISION:
+  // Witness functions execute exclusively within the user's private browser
+  // or local node environment (client-side witness runtime).
+  //
+  // The returned private age NEVER leaves the client, is NOT included in the
+  // transaction data, and CANNOT be extracted by network observers, validators,
+  // or indexers.
+  // ==========================================================================
+  witness getPrivateAge(): Uint<32>;
+  witness getUserAddress(): Address;
+  witness getProofEntropy(): Bytes<32>;
+
+  // ==========================================================================
+  // CONSTRUCTOR CIRCUIT
+  // ==========================================================================
+  // Initializes the Aegis contract on Midnight devnet/testnet.
+  // ==========================================================================
+  export circuit constructor(initialThreshold: Uint<32>): [] {
+    // Validate that initial threshold is a sane numeric age
+    assert(initialThreshold > 0 && initialThreshold < 150, "Invalid age threshold");
+
+    // Initialize public ledger cells
+    admin = own_address();
+    minimumAgeThreshold = initialThreshold;
+    totalEligibleCount = 0;
+    protocolVersion = 1;
+  }
+
+  // ==========================================================================
+  // ADMIN CIRCUITS
+  // ==========================================================================
+  // Allows the protocol admin to update the threshold (e.g. from 18 to 21 for alcohol/gambling)
+  export circuit updateThreshold(newThreshold: Uint<32>): [] {
+    assert(own_address() == admin, "Unauthorized: Only admin can update threshold");
+    assert(newThreshold > 0 && newThreshold < 150, "Invalid threshold value");
+    minimumAgeThreshold = newThreshold;
+  }
+
+  // ==========================================================================
+  // ZERO-KNOWLEDGE PROOF VERIFICATION CIRCUIT
+  // ==========================================================================
+  // Core business logic of Aegis.
+  //
+  // 1. Reads user's raw age from private witness (Client memory only).
+  // 2. Reads public minimumAgeThreshold from Midnight ledger.
+  // 3. Proves inequality inside ZK arithmetic circuit:
+  //       privateAge >= minimumAgeThreshold
+  // 4. Writes ONLY the boolean outcome into the public verifications mapping.
+  // 5. Does NOT leak `privateAge` or `privateAge - threshold`.
+  // ==========================================================================
+  export circuit verifyAgeEligibility(): Boolean {
+    // Step 1: Read private witness inputs (isolated in client witness memory)
+    const privateAge: Uint<32> = getPrivateAge();
+    const caller: Address = getUserAddress();
+    const entropy: Bytes<32> = getProofEntropy();
+
+    // Sane range check for user age in private circuit
+    assert(privateAge > 0 && privateAge < 150, "Witness age out of plausible human range");
+
+    // Step 2: Read current threshold from public ledger
+    const threshold: Uint<32> = minimumAgeThreshold;
+
+    // Step 3: Zero-Knowledge Arithmetic Comparison
+    // Evaluated inside the ZK SNARK/PLONK circuit.
+    // The proof demonstrates knowledge of a valid `privateAge` satisfying this
+    // predicate without disclosing what `privateAge` equals.
+    const isEligible: Boolean = (privateAge >= threshold);
+
+    // Compute proof commitment hash for auditability
+    const commitment: Bytes<32> = hash_sha256(concat(caller, entropy));
+
+    // Step 4: Record public verification in ledger
+    // Notice: `privateAge` is omitted from the record!
+    const record: VerificationRecord = VerificationRecord {
+      isEligible: isEligible,
+      thresholdTested: threshold,
+      timestamp: current_timestamp(),
+      proofCommitment: commitment
+    };
+
+    verifications[caller] = record;
+
+    if (isEligible) {
+      totalEligibleCount = totalEligibleCount + 1;
+    }
+
+    return isEligible;
+  }
+
+  // ==========================================================================
+  // PUBLIC QUERY CIRCUITS
+  // ==========================================================================
+  // Query verification status for an address
+  export circuit queryStatus(user: Address): VerificationRecord {
+    return verifications[user];
+  }
+
+  // Query current threshold
+  export circuit getThreshold(): Uint<32> {
+    return minimumAgeThreshold;
+  }
+}
