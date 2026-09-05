@@ -105,3 +105,5 @@ export class AegisZKCircuit {
     return true;
   }
 }
+
+/** Evaluates private witness inequality against public ledger threshold */
