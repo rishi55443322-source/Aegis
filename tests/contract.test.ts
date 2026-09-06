@@ -173,3 +173,5 @@ describe('Aegis Compact Contract & ZK Circuit Suite', () => {
     });
   });
 });
+
+// Test fixtures for adult and minor profiles
