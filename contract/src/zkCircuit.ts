@@ -107,3 +107,5 @@ export class AegisZKCircuit {
 }
 
 /** Evaluates private witness inequality against public ledger threshold */
+
+/** Synthesizes arithmetic constraints for ZK proving domain */
