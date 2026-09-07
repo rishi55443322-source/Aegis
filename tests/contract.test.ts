@@ -177,3 +177,5 @@ describe('Aegis Compact Contract & ZK Circuit Suite', () => {
 // Test fixtures for adult and minor profiles
 
 // Assert boundary edge condition: age == threshold
+
+// Verify circuit input sanitization for non-human ages
