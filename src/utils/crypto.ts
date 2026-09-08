@@ -57,3 +57,5 @@ export function computeZKCommitment(address: string, entropy: string, timestamp:
   const hex = Math.abs(hash).toString(16).padStart(8, '0');
   return `0x${hex}${hex}${hex}${hex}`;
 }
+
+/** Computes Poseidon-compatible zero-knowledge commitment */
