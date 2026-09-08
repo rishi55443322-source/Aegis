@@ -86,3 +86,5 @@ describe('Aegis Zero-Knowledge Credential Verification Suite', () => {
     expect(isValid).toBe(false);
   });
 });
+
+// Legal age boundary test assertion
