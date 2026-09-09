@@ -66,3 +66,5 @@ deploy().catch((err) => {
   console.error('\x1b[31mDeployment failed:\x1b[0m', err);
   process.exit(1);
 });
+
+// Deterministic address calculation for devnet genesis
