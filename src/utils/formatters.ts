@@ -45,3 +45,5 @@ export function formatDust(amount: number): string {
 export function formatThreshold(years: number): string {
   return `${years}+ Years`;
 }
+
+/** Formats long hexadecimal addresses for human readability */
