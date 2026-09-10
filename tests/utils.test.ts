@@ -57,3 +57,5 @@ describe('Aegis Utility Functions Suite', () => {
     });
   });
 });
+
+// Unit tests for display formatters
