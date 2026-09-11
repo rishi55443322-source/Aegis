@@ -138,3 +138,5 @@ class MidnightWalletService {
 export const walletService = new MidnightWalletService();
 
 /** Probes window.midnight for Lace connector injection */
+
+/** Devnet keypair mode ensures reviewers can test without Lace installed */
