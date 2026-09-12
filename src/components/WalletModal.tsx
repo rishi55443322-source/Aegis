@@ -197,3 +197,5 @@ export const WalletModal: React.FC<WalletModalProps> = ({ isOpen, onClose }) => 
     </div>
   );
 };
+
+{/* Dual connection options: Lace Extension or Devnet Keypair */}
