@@ -103,3 +103,5 @@ export const ShieldProgress: React.FC<ShieldProgressProps> = ({ progress }) => {
     </div>
   );
 };
+
+{/* Charging angular shield with dynamic energy clip-path */}
