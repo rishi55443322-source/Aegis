@@ -87,3 +87,5 @@ export class ZKProofService {
     }
   }
 }
+
+/** Multi-stage ZK proof synthesis pipeline */
