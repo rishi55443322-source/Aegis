@@ -34,3 +34,5 @@ export function useLedgerState(walletAddress?: string | null) {
     resetLedger,
   };
 }
+
+/** React hook synchronizing with Midnight public ledger */
