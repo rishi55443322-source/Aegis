@@ -27,3 +27,5 @@ export function useMidnightWallet() {
     disconnect,
   };
 }
+
+/** React hook providing reactive wallet state */
