@@ -92,3 +92,5 @@ class MidnightContractService {
 }
 
 export const contractService = new MidnightContractService();
+
+/** On-chain verification state machine */
