@@ -199,3 +199,5 @@ export const EligibilityCard: React.FC<EligibilityCardProps> = ({
     </div>
   );
 };
+
+{/* Framer motion spring transition seals raw age from view */}
