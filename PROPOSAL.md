@@ -193,3 +193,5 @@ Aegis is architected to comply natively with global privacy and child protection
 Aegis proves that compliance and privacy are not mutually exclusive. By uniting Midnight's selective disclosure ledger with high-speed client-side zero-knowledge arithmetic circuits, Aegis delivers a robust, submittable, and production-ready verification standard for the Web3 ecosystem.
 
 *"Guard the threshold. Guard the truth."*
+
+<!-- Section 1 & Section 7: Regulatory compliance alignment -->
