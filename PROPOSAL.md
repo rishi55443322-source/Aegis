@@ -195,3 +195,5 @@ Aegis proves that compliance and privacy are not mutually exclusive. By uniting 
 *"Guard the threshold. Guard the truth."*
 
 <!-- Section 1 & Section 7: Regulatory compliance alignment -->
+
+<!-- Section 5.2: Replay attack defenses and Level 4 roadmap -->
