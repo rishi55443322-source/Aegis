@@ -129,3 +129,5 @@ export const Hero: React.FC<HeroProps> = ({ onStartVerification, onOpenPrivacyMo
     </section>
   );
 };
+
+{/* Hero section with oversized tagline and value matrix */}
