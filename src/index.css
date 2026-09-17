@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #000000;
+  }
+  
+  body {
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Neo-Brutalist Interactive Button */
+  .neo-btn {
+    @apply font-bold uppercase tracking-wider border-3 border-black bg-neo-yellow text-black px-5 py-2.5 shadow-neo transition-all duration-100 select-none;
+  }
+  .neo-btn:hover {
+    @apply translate-x-[-2px] translate-y-[-2px] shadow-neo-lg;
+  }
+  .neo-btn:active {
+    @apply translate-x-[2px] translate-y-[2px] shadow-neo-sm;
+  }
+  .neo-btn:disabled {
+    @apply opacity-50 cursor-not-allowed translate-x-0 translate-y-0 shadow-none border-gray-400 bg-gray-200 text-gray-500;
+  }
+
+  /* Neo-Brutalist Container / Card */
+  .neo-box {
+    @apply border-3 sm:border-4 border-black bg-white shadow-neo sm:shadow-neo-lg;
+  }
+
+  .neo-box-dark {
+    @apply dark:bg-neo-darkCard dark:border-neo-yellow dark:shadow-neo-yellow;
+  }
+
+  /* Neo Input Field */
+  .neo-input {
+    @apply border-3 border-black bg-white px-4 py-3 font-mono text-base font-bold text-black outline-none transition-all placeholder:text-gray-400 focus:bg-yellow-50 focus:shadow-neo-sm;
+  }
+
+  /* Neo Badges */
+  .neo-badge {
+    @apply inline-flex items-center gap-1.5 border-2 border-black px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide;
+  }
+}
+
+/* Custom Shield Slam Animation Keyframes */
+@keyframes shieldSlam {
+  0% {
+    transform: scale(1.35) rotate(-6deg);
+    opacity: 0.2;
+  }
+  70% {
+    transform: scale(0.96) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-shield-slam {
+  animation: shieldSlam 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
