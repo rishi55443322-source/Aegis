@@ -168,3 +168,5 @@ export circuit verifyAgeEligibility(): Boolean {
     </div>
   );
 };
+
+{/* Selective disclosure matrix: Public vs Private state */}
