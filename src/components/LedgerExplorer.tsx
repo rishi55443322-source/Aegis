@@ -147,3 +147,5 @@ export const LedgerExplorer: React.FC = () => {
     </section>
   );
 };
+
+{/* Public ledger explorer showing verified credentials without raw ages */}
