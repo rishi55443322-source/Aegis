@@ -261,3 +261,5 @@ export const VerificationFlow: React.FC<VerificationFlowProps> = ({ onOpenWallet
     </div>
   );
 };
+
+{/* Age input form with preset threshold buttons */}
