@@ -122,3 +122,5 @@ describe('Aegis Application Frontend & Integration Suite', () => {
     );
   });
 });
+
+// Integration test verifying wallet state transitions
