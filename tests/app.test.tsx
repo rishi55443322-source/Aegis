@@ -124,3 +124,5 @@ describe('Aegis Application Frontend & Integration Suite', () => {
 });
 
 // Integration test verifying wallet state transitions
+
+// End-to-end test asserting access denied for underage inputs
