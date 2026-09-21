@@ -41,3 +41,5 @@ jobs:
         run: npm run build
 
 # Concurrency group configured
+
+# Verify compilation and deployment scripts in CI
