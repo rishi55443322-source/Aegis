@@ -39,3 +39,5 @@ jobs:
 
       - name: Build Production Web Application
         run: npm run build
+
+# Concurrency group configured
