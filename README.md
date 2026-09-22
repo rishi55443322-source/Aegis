@@ -3,6 +3,7 @@
 > **"Guard the threshold. Guard the truth."**
 
 [![Aegis CI Pipeline](https://github.com/rishi55443322-source/Aegis/actions/workflows/ci.yml/badge.svg)](https://github.com/rishi55443322-source/Aegis/actions/workflows/ci.yml)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-Watch_Walkthrough-ec4899?logo=googlephotos)](https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA)
 [![Tests Passing](https://img.shields.io/badge/Tests-25%2F25_Passing-10b981.svg)](tests/)
 [![Product Proposal](https://img.shields.io/badge/Proposal-PROPOSAL.md_Available-8b5cf6.svg)](PROPOSAL.md)
 [![Midnight Network](https://img.shields.io/badge/Blockchain-Midnight_Testnet--02-7c3aed.svg)](https://midnight.network)
@@ -18,6 +19,7 @@
 |---|---|
 | **Project Name** | **Aegis** |
 | **Tagline** | *"Guard the threshold. Guard the truth."* |
+| **Demo Video Walkthrough** | **[https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA](https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA)** |
 | **Target Network** | **Midnight Testnet-02 / Local Devnet** |
 | **Smart Contract Language** | **Midnight Compact (`v0.18+`)** |
 | **Circuit Definition** | [`contract/aegis.compact`](contract/aegis.compact) |
@@ -227,8 +229,8 @@ npm test
 ---
 
 ## 9. Demo Video
-
-- **Video Walkthrough (YouTube / Loom)**: [DEMO_VIDEO_URL_PLACEHOLDER]
+ 
+- **Video Walkthrough (Google Photos)**: **[https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA](https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA)**
 
 ---
 
