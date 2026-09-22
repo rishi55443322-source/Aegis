@@ -21,7 +21,7 @@ export const LedgerExplorer: React.FC = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+    <section id="ledger-explorer" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
       <div className="neo-box p-6 sm:p-8 bg-white dark:bg-neo-darkCard dark:border-neo-yellow">
         
         {/* Header */}

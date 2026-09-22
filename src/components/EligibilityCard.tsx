@@ -183,15 +183,15 @@ export const EligibilityCard: React.FC<EligibilityCardProps> = ({
               <span>Verify Another Attribute</span>
             </button>
 
-            <a
-              href="https://explorer.testnet.midnight.network"
-              target="_blank"
-              rel="noreferrer"
-              className="px-4 py-2.5 bg-black text-white font-bold uppercase text-xs sm:text-sm border-3 border-black shadow-neo-sm hover:bg-neutral-800 flex items-center gap-2 transition-all"
+            <button
+              onClick={() => {
+                const el = document.getElementById('ledger-explorer');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-4 py-2.5 bg-black text-white font-bold uppercase text-xs sm:text-sm border-3 border-black shadow-neo-sm hover:bg-neutral-800 flex items-center gap-2 transition-all cursor-pointer"
             >
-              <span>View On Midnight Explorer</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
+              <span>Inspect Public Ledger</span>
+            </button>
           </div>
 
         </div>

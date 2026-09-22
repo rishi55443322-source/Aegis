@@ -199,7 +199,7 @@ npm test
 ## 8. Live Demo
 
 - **Interactive dApp Demo**: [LIVE_DEMO_URL_PLACEHOLDER]
-- **Midnight Explorer Contract**: [https://explorer.testnet.midnight.network/contract/0x7f4a21c99fbd8e32c842b10a9901ef45b23d91ae](https://explorer.testnet.midnight.network)
+- **Deployment**: Local Devnet / Testnet (deployable via `npm run deploy:local`)
 
 ---
 
