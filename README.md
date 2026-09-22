@@ -217,7 +217,7 @@ npm test
 ## 7. Screenshots
 
 ### 1. CI/CD Pipeline Passing
-![Aegis CI/CD Workflow](image.png)
+![Aegis CI/CD Workflow](ci-workflow.png)
 
 ### 2. Automated Test Suite (13 Passing Tests)
 ![Aegis Test Suite](image-1.png)
