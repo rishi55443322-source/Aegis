@@ -182,17 +182,11 @@ npm test
 
 ## 7. Screenshots
 
-### 1. Neo-Brutalist Landing & Verification Gate
-[SCREENSHOT: Aegis Hero Section with Tagline & Value Proposition]
+### 1. CI/CD Pipeline Passing
+![Aegis CI/CD Workflow](image.png)
 
-### 2. Real-Time ZK Shield Charging Progress
-[SCREENSHOT: Charging Angular Shield with R1CS Constraint Synthesis]
-
-### 3. Verified Eligible Result & Privacy Shield
-[SCREENSHOT: Access Granted Result Card with Sealed Private Witness]
-
-### 4. Selective Disclosure Explainer Modal
-[SCREENSHOT: How Aegis Stays Private - Public vs Private Comparison Matrix]
+### 2. Automated Test Suite (13 Passing Tests)
+![Aegis Test Suite](image-1.png)
 
 ---
 
