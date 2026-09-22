@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "protocolVersion": 1,
   "targetNetwork": "midnight-testnet-02",
-  "deployedAddress": "0x7f4a21c99fbd8e32c842b10a9901ef45b23d91ae",
+  "deployedAddress": "0x7f4a21c99fbd8e32c842b10a9901ef45b23d91ae5c7b39d10e82f4410a82b991",
   "transactionHash": "0x9c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d",
   "blockHeight": 104291,
   "deployedAt": "2026-09-09T10:35:45.000Z",

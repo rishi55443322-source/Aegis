@@ -3,6 +3,7 @@
 > **"Guard the threshold. Guard the truth."**
 
 [![Aegis CI Pipeline](https://github.com/rishi55443322-source/Aegis/actions/workflows/ci.yml/badge.svg)](https://github.com/rishi55443322-source/Aegis/actions/workflows/ci.yml)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Netlify_Active-00ad9f?logo=netlify)](https://wonderful-pika-6f84e6.netlify.app/)
 [![Demo Video](https://img.shields.io/badge/Demo_Video-Watch_Walkthrough-ec4899?logo=googlephotos)](https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA)
 [![Tests Passing](https://img.shields.io/badge/Tests-25%2F25_Passing-10b981.svg)](tests/)
 [![Product Proposal](https://img.shields.io/badge/Proposal-PROPOSAL.md_Available-8b5cf6.svg)](PROPOSAL.md)
@@ -19,6 +20,8 @@
 |---|---|
 | **Project Name** | **Aegis** |
 | **Tagline** | *"Guard the threshold. Guard the truth."* |
+| **Live Web Application** | **[https://wonderful-pika-6f84e6.netlify.app/](https://wonderful-pika-6f84e6.netlify.app/)** |
+| **Deployed Contract Address** | `0x7f4a21c99fbd8e32c842b10a9901ef45b23d91ae5c7b39d10e82f4410a82b991` |
 | **Demo Video Walkthrough** | **[https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA](https://photos.app.goo.gl/2AmNs7yYNfJM3VvFA)** |
 | **Target Network** | **Midnight Testnet-02 / Local Devnet** |
 | **Smart Contract Language** | **Midnight Compact (`v0.18+`)** |
@@ -223,8 +226,10 @@ npm test
 
 ## 8. Live Demo
 
-- **Interactive dApp Demo**: [LIVE_DEMO_URL_PLACEHOLDER]
-- **Deployment**: Local Devnet / Testnet (deployable via `npm run deploy:local`)
+- **Live Web Application**: **[https://wonderful-pika-6f84e6.netlify.app/](https://wonderful-pika-6f84e6.netlify.app/)**
+- **Deployed Contract Address**: `0x7f4a21c99fbd8e32c842b10a9901ef45b23d91ae5c7b39d10e82f4410a82b991`
+- **Deployment Manifest**: [`deployed_contract.json`](deployed_contract.json)
+- **Local Devnet / Testnet Deployment**: `npm run deploy:local`
 
 ---
 
