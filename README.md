@@ -3,10 +3,29 @@
 > **"Guard the threshold. Guard the truth."**
 
 [![Aegis CI Pipeline](https://github.com/rishi55443322-source/Aegis/actions/workflows/ci.yml/badge.svg)](https://github.com/rishi55443322-source/Aegis/actions/workflows/ci.yml)
-[![Midnight Network](https://img.shields.io/badge/Blockchain-Midnight_Testnet-00D664?style=flat&logo=blockchain&logoColor=white)](https://midnight.network)
-[![Smart Contract](https://img.shields.io/badge/Language-Compact_0.18-FFE600?style=flat&logo=code&logoColor=black)](https://midnight.network)
-[![Submission](https://img.shields.io/badge/RiseIn-Level_3_First_Quarter-2563EB?style=flat)](https://risein.com)
-[![License](https://img.shields.io/badge/License-Apache_2.0-black?style=flat)](LICENSE)
+[![Tests Passing](https://img.shields.io/badge/Tests-25%2F25_Passing-10b981.svg)](tests/)
+[![Product Proposal](https://img.shields.io/badge/Proposal-PROPOSAL.md_Available-8b5cf6.svg)](PROPOSAL.md)
+[![Midnight Network](https://img.shields.io/badge/Blockchain-Midnight_Testnet--02-7c3aed.svg)](https://midnight.network)
+[![Smart Contract](https://img.shields.io/badge/Language-Compact_v0.18-FFE600.svg)](contract/aegis.compact)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![RiseIn Track](https://img.shields.io/badge/RiseIn-Level_3_Submission-rose.svg)](https://www.risein.com)
+
+---
+
+## 📜 Smart Contract Architecture & Deployment
+
+| Parameter | Value |
+|---|---|
+| **Project Name** | **Aegis** |
+| **Tagline** | *"Guard the threshold. Guard the truth."* |
+| **Target Network** | **Midnight Testnet-02 / Local Devnet** |
+| **Smart Contract Language** | **Midnight Compact (`v0.18+`)** |
+| **Circuit Definition** | [`contract/aegis.compact`](contract/aegis.compact) |
+| **Local Deployment Script** | `npm run deploy:local` (generates [`deployed_contract.json`](deployed_contract.json)) |
+| **Deployment Manifest** | [`deployed_contract.json`](deployed_contract.json) |
+| **ZK Proving Engine** | **Midnight Halo2 / Compact Prover** |
+| **Test Coverage** | **25 / 25 Tests Passing** across 4 test suites |
+| **Product Proposal** | **[PROPOSAL.md](PROPOSAL.md)** |
 
 ---
 
@@ -161,8 +180,8 @@ Run the entire test suite with a single command:
 npm test
 ```
 
-### Test Suite Breakdown:
-- **Contract & Circuit Suite** (`tests/contract.test.ts`):
+### Test Suite Breakdown (25 / 25 Passing Across 4 Suites):
+- **Contract & Circuit Suite** (`tests/contract.test.ts` — 8 tests):
   - `age > threshold` (e.g. 24 >= 18) generates valid proof and records `isEligible = true`.
   - `age < threshold` (e.g. 16 < 18) generates valid proof and records `isEligible = false`.
   - Exact boundary test (`age = 18`, `threshold = 18` $\rightarrow$ passes).
@@ -171,7 +190,17 @@ npm test
   - Threshold mismatch rejection (rejects proofs forged for different threshold parameters).
   - Admin governance (authorized threshold updates, unauthorized access rejection).
   - Privacy audit: Verifies that `privateAge` is absent from all serialized ledger states.
-- **Frontend & Integration Suite** (`tests/app.test.tsx`):
+- **Credential & Tamper-Resistance Suite** (`tests/credential.test.ts` — 4 tests):
+  - Validates zero-knowledge witness generation for threshold boundaries.
+  - Senior attribute verification ($45 \ge 18$) without leaking age distance.
+  - Minor credential verification ($15 < 18$) ensuring zero bytes of raw age leaked to record.
+  - Tamper detection rejecting malformed proof data and invalid commitment structures.
+- **Cryptographic & Formatting Primitives Suite** (`tests/utils.test.ts` — 8 tests):
+  - Cryptographic entropy generation and length validation.
+  - Deterministic SHA-256 digest computation and hash collision resistance.
+  - Poseidon-compatible zero-knowledge commitment binding per caller address.
+  - Substrate address formatting, Unix timestamp parsing, and tDUST balance display.
+- **Frontend & Integration Suite** (`tests/app.test.tsx` — 5 tests):
   - Brand identity, tagline, and neo-brutalist components rendering.
   - Interactive Privacy Model selective disclosure modal.
   - Midnight Lace wallet connector & devnet test keypair integration.
