@@ -253,3 +253,5 @@ This project is licensed under the **Apache 2.0 License**. See the [LICENSE](LIC
 - **Milestone**: Level 3 - First Quarter Submission
 - **Repository**: [https://github.com/rishi55443322-source/Aegis](https://github.com/rishi55443322-source/Aegis)
 - **Developer GitHub Profile**: [https://github.com/rishi55443322-source](https://github.com/rishi55443322-source)
+
+<!-- Smart Contract Architecture & Deployment table -->
