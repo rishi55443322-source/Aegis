@@ -209,7 +209,8 @@ export const VerificationFlow: React.FC<VerificationFlowProps> = ({ onOpenWallet
                     value={ageInput}
                     onChange={(e) => setAgeInput(e.target.value)}
                     placeholder="e.g. 21"
-                    className="neo-input w-32 text-2xl"
+                    aria-label="Private User Age"
+                    className="neo-input w-28 sm:w-32 text-xl sm:text-2xl"
                     required
                   />
 
